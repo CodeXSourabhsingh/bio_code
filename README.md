@@ -1,5 +1,5 @@
 # bio_code
-# Bioinformatics Portfolio — 8 Projects in 8 Days
+# Bioinformatics Portfolio — 9 Projects in 6 Days
 
 This repository contains 8 working bioinformatics projects built using Python, Pandas, and MySQL.
 
@@ -12,11 +12,13 @@ This repository contains 8 working bioinformatics projects built using Python, P
 6. Bacteria Growth Simulation — Population dynamics
 7. Biomarker Outlier Detector — Anomaly detection in biological data
 8. Univariate Data Summary — Statistical summaries
+9. Evolution Engine - Bacterial resistance simulation with plasmid conjugation and penicillin selection
 
 ## Tech Stack
 - Python
 - Pandas
-- SQL / MySQL
+- MySQL
+- Matplotlib
 - Git / GitHub
 
 ## Author
