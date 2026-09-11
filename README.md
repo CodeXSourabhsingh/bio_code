@@ -1,5 +1,5 @@
 # bio_code
-# Bioinformatics Portfolio — 9 Projects in 6 Days
+# Bioinformatics Portfolio — 9 Projects in 7 Days
 
 This repository contains 8 working bioinformatics projects built using Python, Pandas, and MySQL.
 
