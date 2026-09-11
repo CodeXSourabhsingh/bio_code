@@ -31,25 +31,37 @@ data = {
     'Resistant_Percent': []
 }
 
-for hour in range(1, hours + 1):
-   
-    if penicillin > 0:
-        normal_count = 0
-        resistant_count = int(resistant_count * (1 + resistant_growth_rate))
-    else:
-        normal_count = int(normal_count * (1 + normal_growth_rate))
-        resistant_count = int(resistant_count * (1 + resistant_growth_rate))
+temp_factor = 0.0
+if 5 <= temperature <= 50:
+    temp_factor = max(0, 1 - ((temperature - 37) / 20) ** 2)  
+kill_rate = min(0.9, penicillin * 0.15) if penicillin > 0 else 0.0
 
+for hour in range(1, hours + 1):
+
+    normal_count = int(normal_count * (1 + (normal_growth_rate * temp_factor)))
+    normal_count = int(normal_count * (1 - kill_rate))
+
+    resistant_count = int(resistant_count * (1 + (resistant_growth_rate * temp_factor)))
+
+   
     if normal_count > 0 and resistant_count > 0:
         transferred = int(normal_count * conjugation_rate)
         if transferred > normal_count:
             transferred = normal_count
         normal_count = normal_count - transferred
         resistant_count = resistant_count + transferred
+    total_population = normal_count + resistant_count
+    if nutrients > 0 and total_population > 1000000:
+        growth_cap = nutrients * 100000
+        if total_population > growth_cap:
+            excess = total_population - growth_cap
+            if normal_count > 0:
+                normal_count = max(0, normal_count - excess)
+            else:
+                resistant_count = max(0, resistant_count - excess)
 
     total_population = normal_count + resistant_count
     resistant_percent = (resistant_count / total_population) * 100 if total_population > 0 else 0
-
     data['Hour'].append(hour)
     data['Total_Population'].append(total_population)
     data['Resistant'].append(resistant_count)
