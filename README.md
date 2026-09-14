@@ -1,7 +1,7 @@
 # bio_code
-# Bioinformatics Portfolio — 9 Projects in 7 Days
+# Bioinformatics Portfolio — 9 Projects in 6 Days
 
-This repository contains 8 working bioinformatics projects built using Python, Pandas, and MySQL.
+This repository contains 9 working bioinformatics projects built using Python, Pandas, and MySQL.
 
 ## Projects
 1. GC Content Analyzer — DNA sequence analysis
